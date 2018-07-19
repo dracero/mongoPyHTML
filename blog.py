@@ -39,6 +39,25 @@ __author__ = 'aje'
 
 # These are the routes that the blog must handle. They are decorated using bottle.py
 
+#Agrego los statics!
+
+@bottle.get("/static/css/<filepath:re:.*\.css>")
+def css(filepath):
+    return bottle.static_file(filepath, root="static/css")
+
+@bottle.get("/static/font/<filepath:re:.*\.(eot|otf|svg|ttf|woff|woff2?)>")
+def font(filepath):
+    return bottle.static_file(filepath, root="static/font")
+
+@bottle.get("/static/img/<filepath:re:.*\.(jpg|png|gif|ico|svg)>")
+def img(filepath):
+    return bottle.static_file(filepath, root="static/img")
+
+@bottle.get("/static/js/<filepath:re:.*\.js>")
+def js(filepath):
+    return bottle.static_file(filepath, root="static/js")
+
+
 # This route is the main page of the blog
 @bottle.route('/')
 def blog_index():
@@ -342,4 +361,3 @@ sessions = sessionDAO.SessionDAO(database)
 
 bottle.debug(True)
 bottle.run(host='localhost', port=8082)         # Start the webserver running and wait for requests
-

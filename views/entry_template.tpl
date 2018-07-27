@@ -1,13 +1,16 @@
 <!doctype HTML>
-<html
+<html>
 <head>
 <title>
 Blog Post
+
 </title>
+<link rel="stylesheet" type="text/css" href="static/css/style.css">
+<link href="static/img/uba.jpg" rel="shortcut icon">
 </head>
 <body>
 %if (username != None):
-Welcome {{username}}        <a href="/logout">Logout</a> | 
+Welcome {{username}}        <a href="/logout">Logout</a> |
 %end
 <a href="/">Blog Home</a><br><br>
 
@@ -16,7 +19,7 @@ Posted {{post['date']}}<i> By {{post['author']}}</i><br>
 <hr>
 {{!post['body']}}
 <p>
-<em>Filed Under</em>: 
+<em>Filed Under</em>:
 %if ('tags' in post):
 %for tag in post['tags'][0:1]:
 <a href="/tag/{{tag}}">{{tag}}</a>
@@ -26,7 +29,7 @@ Posted {{post['date']}}<i> By {{post['author']}}</i><br>
 %end
 %end
 <p>
-Comments: 
+Comments:
 <ul>
 %if ('comments' in post):
 %numComments = len(post['comments'])
@@ -52,5 +55,3 @@ Author: {{post['comments'][i]['author']}}<br>
 </ul>
 </body>
 </html>
-
-

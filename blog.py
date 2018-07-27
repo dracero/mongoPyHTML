@@ -194,6 +194,29 @@ def post_newpost():
     # now bottle.redirect to the blog permalink
     bottle.redirect("/post/" + permalink)
 
+# Desarrollo del buscador por email
+@bottle.get('/buscador')
+def present_buscador():
+    cookie = bottle.request.get_cookie("session")
+    username = sessions.get_username(cookie)
+
+    return bottle.template("buscador",{'username': username}, dict(email_bus=""))
+
+@bottle.post('/buscador')
+def process_buscador():
+    email_b = bottle.request.forms.get("email_bus")
+
+    cookie = bottle.request.get_cookie("session")
+    username = sessions.get_username(cookie)  # see if user is logged in
+    if username is None:
+        bottle.redirect("/login")
+
+    print " email a buscar:", email_b
+    resultado = 1
+    return bottle.template("buscador",{'resultado':resultado}, {'email_buscado':email_b},{'username': username}
+                            , dict (email_bus=""))
+
+
 
 # displays the initial blog signup form
 @bottle.get('/signup')

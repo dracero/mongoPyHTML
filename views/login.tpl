@@ -3,10 +3,8 @@
 <html>
   <head>
     <title>Login</title>
-    <style type="text/css">
-      .label {text-align: right}
-      .error {color: red}
-    </style>
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link href="static/img/uba.jpg" rel="shortcut icon">
 
   </head>
 
@@ -34,7 +32,7 @@
           </td>
           <td class="error">
 	    {{login_error}}
-            
+
           </td>
         </tr>
 

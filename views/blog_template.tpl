@@ -13,7 +13,7 @@ Welcome {{username}}        <a href="/logout">Logout</a> | <a href="/newpost">Ne
 <a href="/welcome">home</a><p>
 %end
 <div>
-<h1>Master Blog</h1>
+<h1>Server CEAD</h1>
 <img src="/static/img/uba.jpg" ALT="example annotation" WIDTH=100 HEIGHT=100>
 </div>
 %for post in myposts:

@@ -2,6 +2,8 @@
 <html>
 <head>
 <title>Create a new post</title>
+<link rel="stylesheet" type="text/css" href="static/css/style.css">
+<link href="static/img/uba.jpg" rel="shortcut icon">
 </head>
 <body>
 %if (username != None):
@@ -21,4 +23,3 @@ Comma separated, please<br>
 
 </body>
 </html>
-

@@ -89,5 +89,3 @@ class UserDAO:
             return False
 
         return True
-
-

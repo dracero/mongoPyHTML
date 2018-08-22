@@ -25,6 +25,7 @@ import userDAO
 import bottle
 import cgi
 import re
+import buscador
 
 
 
@@ -199,19 +200,22 @@ def post_newpost():
 def present_buscador():
     cookie = bottle.request.get_cookie("session")
     username = sessions.get_username(cookie)
-
-    return bottle.template("buscador",{'username': username}, dict(email_bus=""))
+    resultado = ''
+    email_b = ''
+    return bottle.template("buscador",{'email_buscado': email_b},{'username': username},{'resultado':resultado},dict(email_bus=""))
 
 @bottle.post('/buscador')
 def process_buscador():
-    email_b = bottle.request.forms.get("email_bus")
 
+    email_b = bottle.request.forms.get("email_bus")
+    busca = buscador.Buscador(email_b)
     cookie = bottle.request.get_cookie("session")
     username = sessions.get_username(cookie)  # see if user is logged in
     if username is None:
         bottle.redirect("/login")
 
     print " email a buscar:", email_b
+
     resultado = 1
     return bottle.template("buscador",{'resultado':resultado}, {'email_buscado':email_b},{'username': username}
                             , dict (email_bus=""))
@@ -373,7 +377,7 @@ def validate_signup(username, password, verify, email, errors):
             return False
     return True
 
-connection_string = "mongodb://localhost"
+connection_string = "mongodb://localhost/27017"
 connection = pymongo.MongoClient(connection_string)
 database = connection.blog
 

@@ -32,7 +32,9 @@
       <input type="submit" >
     </form>
 
-      {{resultado}}
+    Email a Buscar:{{email_buscado}}==>
+    {{resultado}}
+
 
   </body>
 

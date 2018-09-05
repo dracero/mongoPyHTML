@@ -12,7 +12,7 @@
      | <a href="/logout">Salir </a> |
     <div>
     <h1>Buscador</h1>
-    <img src="/static/img/uba.jpg" ALT="example annotation" WIDTH=100 HEIGHT=100>
+    <img src="/static/img/lupa.png" ALT="example annotation" WIDTH=100 HEIGHT=100>
     </div>
 
     <form method="post">

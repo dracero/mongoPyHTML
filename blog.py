@@ -25,7 +25,7 @@ import userDAO
 import bottle
 import cgi
 import re
-import buscador
+import atlas
 
 
 
@@ -208,15 +208,16 @@ def present_buscador():
 def process_buscador():
 
     email_b = bottle.request.forms.get("email_bus")
-    busca = buscador.Buscador(email_b)
+    #busca = buscador.Buscador(email_b)
     cookie = bottle.request.get_cookie("session")
     username = sessions.get_username(cookie)  # see if user is logged in
     if username is None:
         bottle.redirect("/login")
 
     print " email a buscar:", email_b
-
-    resultado = 1
+    #aqui llama al metodo buscar por elemento email en el script atlas.py
+    atl = atlas.Atlas("mongodb://localhost/27017")
+    resultado = atl.buscarPorEmail(email_b)
     return bottle.template("buscador",{'resultado':resultado}, {'email_buscado':email_b},{'username': username}
                             , dict (email_bus=""))
 

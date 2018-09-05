@@ -4,12 +4,23 @@
 import csv
 import pandas as pd
 from pymongo import MongoClient
+import pprint
 
 #Importar y exportar datos desde el punto de vista del servidor
 
 class Atlas:
     def __init__(self, server):
-        self.client = MongoClient('localhost',server)
+        self.client = MongoClient(server)
+
+    def buscarPorEmail(self, email):
+        db = self.client.coreTec
+        elements = db.coreTest
+        #pprint.pprint(elements.find_one({"Email": email}))
+        elemento = elements.find_one({"Email": email})
+        Parcial1 = elemento["Parcial1"]
+        print Parcial1
+        return elemento
+
 
     def importar(self, archivo):
         db = self.client.coreTec

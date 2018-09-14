@@ -9,12 +9,12 @@
   </head>
 
   <body>
-    <h2>Login</h2>
+    <h2>Iniciar Cesión</h2>
     <form method="post">
       <table>
         <tr>
           <td class="label">
-            Username
+            Usuario
           </td>
           <td>
             <input type="text" name="username" value="{{username}}">
@@ -25,7 +25,7 @@
 
         <tr>
           <td class="label">
-            Password
+            Contraseña
           </td>
           <td>
             <input type="password" name="password" value="">
@@ -38,7 +38,7 @@
 
       </table>
 
-      <input type="submit">
+      <input type="submit" value="Enviar información">
     </form>
   </body>
 

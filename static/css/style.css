@@ -2,8 +2,19 @@ body {
   padding-left: 11em;
   font-family: Georgia, "Times New Roman",
         Times, serif;
-  color: blue;
+  color: black;
   background-color: #1 }
+
+  div{
+    width: 1000px;
+    border: 25px solid grey;
+    padding: 25px;
+    margin: 25px;
+
+  }
+
+
+
 
 ul.navbar {
   list-style-type: none;
@@ -23,11 +34,28 @@ ul.navbar li {
   border-right: 1em solid black }
 ul.navbar a {
   text-decoration: none }
+
+
 a:link {
-  color: red }
+  color: blue }
 a:visited {
   color: purple }
+a:active {estilos aquí}
+
+  a:hover {font-size:20px;
+color:#100;}
+
+
 address {
   margin-top: 1em;
   padding-top: 1em;
   border-top: thin dotted }
+
+  .normal {
+  width: 250px;
+  border: 1px solid #000;
+  color: Black
+}
+.normal th, .normal td {
+  border: 1px solid #000;
+}

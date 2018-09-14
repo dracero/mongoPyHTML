@@ -2,7 +2,7 @@
 
 <html>
   <head>
-    <title>Sign Up</title>
+    <title>Iniciar Sesión</title>
 
     <link rel="stylesheet" type="text/css" href="static/css/style.css">
     <link href="static/img/uba.jpg" rel="shortcut icon">
@@ -10,13 +10,13 @@
   </head>
 
   <body>
-    Already a user? <a href="/login">Login</a><p>
-    <h2>Signup</h2>
+    Ya es Usuario? <a href="/login">Iniciar Cesión</a> | <a href="/">Home</a><p>
+    <h2>Iniciar</h2>
     <form method="post">
       <table>
         <tr>
           <td class="label">
-            Username
+            Usuario
           </td>
           <td>
             <input type="text" name="username" value="{{username}}">
@@ -29,7 +29,7 @@
 
         <tr>
           <td class="label">
-            Password
+            Contraseña
           </td>
           <td>
             <input type="password" name="password" value="">
@@ -42,7 +42,7 @@
 
         <tr>
           <td class="label">
-            Verify Password
+            Verificar contraseña
           </td>
           <td>
             <input type="password" name="verify" value="">
@@ -55,7 +55,7 @@
 
         <tr>
           <td class="label">
-            Email (optional)
+            Email (opcional)
           </td>
           <td>
             <input type="text" name="email" value="{{email}}">
@@ -67,7 +67,7 @@
         </tr>
       </table>
 
-      <input type="submit">
+      <input type="submit" value="Enviar información">
     </form>
   </body>
 

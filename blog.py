@@ -58,6 +58,10 @@ def img(filepath):
 def js(filepath):
     return bottle.static_file(filepath, root="static/js")
 
+@bottle.get("/static/js/<filepath:re:.*\.csv>")
+def csv(filepath):
+    return bottle.static_file(filepath, root="static/csv")
+
 
 # This route is the main page of the blog
 @bottle.route('/')
@@ -200,7 +204,9 @@ def post_newpost():
 def present_buscador():
     cookie = bottle.request.get_cookie("session")
     username = sessions.get_username(cookie)
-    resultado = ''
+    if username is None:
+        bottle.redirect("/login")
+    resultado = 3
     email_b = ''
     return bottle.template("buscador",{'email_buscado': email_b},{'username': username},{'resultado':resultado},dict(email_bus=""))
 
@@ -263,7 +269,7 @@ def process_login():
         # revert to .11 to solve the problem.
         bottle.response.set_cookie("session", cookie)
 
-        bottle.redirect("/welcome")
+        bottle.redirect("/operaciones")
 
     else:
         return bottle.template("login",
@@ -310,15 +316,15 @@ def process_signup():
         session_id = sessions.start_session(username)
         print session_id
         bottle.response.set_cookie("session", session_id)
-        bottle.redirect("/welcome")
+        bottle.redirect("/operaciones")
     else:
         print "user did not validate"
         return bottle.template("signup", errors)
 
 
 
-@bottle.get("/welcome")
-def present_welcome():
+@bottle.get("/operaciones")
+def present_operaciones():
     # check for a cookie, if present, then extract value
 
     cookie = bottle.request.get_cookie("session")
@@ -327,7 +333,7 @@ def present_welcome():
         print "welcome: can't identify user...redirecting to signup"
         bottle.redirect("/signup")
 
-    return bottle.template("welcome", {'username': username})
+    return bottle.template("operaciones", {'username': username})
 
 
 

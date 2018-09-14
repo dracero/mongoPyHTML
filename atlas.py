@@ -15,21 +15,23 @@ class Atlas:
     def buscarPorEmail(self, email):
         db = self.client.coreTec
         elements = db.coreTest
-        #pprint.pprint(elements.find_one({"Email": email}))
         elemento = elements.find_one({"Email": email})
-        Parcial1 = elemento["Parcial1"]
-        Email = elemento["Email"]
-        Parcial1 = elemento["Parcial1"]
-        Parcial2  = elemento["Parcial2"]
-        Parcial3  = elemento["Parcial3"]
-        RecParcial1 = elemento["RecParcial1"]
-        RecParcial2 = elemento["RecParcial2"]
-        RecParcial3 = elemento["RecParcial3"]
-        Rec2Parcial1 = elemento["2RecParcial1"]
-        Rec2Parcial2 = elemento["2RecParcial2"]
-        resultado = [Email,Parcial1,Parcial2,Parcial3,RecParcial1,RecParcial2,RecParcial3,Rec2Parcial1,Rec2Parcial2]
-        #print Parcial1
-        return resultado[0]
+        if not elemento :
+            resultado = 0
+        else :
+            Parcial1 = elemento["Parcial1"]
+            Email = elemento["Email"]
+            Parcial1 = elemento["Parcial1"]
+            Parcial2  = elemento["Parcial2"]
+            Parcial3  = elemento["Parcial3"]
+            RecParcial1 = elemento["RecParcial1"]
+            RecParcial2 = elemento["RecParcial2"]
+            RecParcial3 = elemento["RecParcial3"]
+            Rec2Parcial1 = elemento["2RecParcial1"]
+            Rec2Parcial2 = elemento["2RecParcial2"]
+            resultado = [Email,Parcial1,Parcial2,Parcial3,RecParcial1,RecParcial2,RecParcial3,Rec2Parcial1,Rec2Parcial2]
+            print resultado
+        return resultado
 
 
     def importar(self, archivo):
